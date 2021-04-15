@@ -32,5 +32,6 @@
 
 #include "driver/BLDCDriver.h"
 #include "sensors/HallSensor.h"
+#include "sensors/Sensorless.h"
 
 #endif
