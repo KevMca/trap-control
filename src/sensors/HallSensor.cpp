@@ -1,7 +1,7 @@
 #include "HallSensor.h"
 #include "hardware_api.h"
 
-HallSensor::HallSensor(int _pinA, int _pinB, int _pinC, Pullup _pullup){
+HallSensor::HallSensor(int _pinA, int _pinB, int _pinC, Pullup _pullup) {
   // hardware pins
   pinA = _pinA;
   pinB = _pinB;
@@ -11,7 +11,7 @@ HallSensor::HallSensor(int _pinA, int _pinB, int _pinC, Pullup _pullup){
   pullup = _pullup;
 }
 
-// initialise pwm pins
+// initialise hall sensor pins
 void HallSensor::init() {
   // HallSensor - check if internal pullup needed for the HallSensor
   if(pullup == Pullup::INTERN){
@@ -33,7 +33,7 @@ void HallSensor::init() {
 
 // function enabling hardware interrupts for the callback provided
 // if callback is not provided then the interrupt is not enabled
-void HallSensor::enableInterrupts(void (*doA)(), void(*doB)(), void(*doC)()){
+void HallSensor::enableInterrupts(void (*doA)(), void(*doB)(), void(*doC)()) {
   // attach interrupt using a hardware specific function
   _enablePinChangeInterrupt(doA, pinA);
   _enablePinChangeInterrupt(doB, pinB);
@@ -60,7 +60,7 @@ void HallSensor::handleC() {
 //Updates the state and step following an interrupt
 void HallSensor::updateState() {
   hall_state = C_state + (B_state << 1) + (A_state << 2); // Update 3 bit state
-  int8_t new_electric_step = ELECTRIC_STEPS[hall_state]; // Determine electric step using lookup table
+  int8_t new_electric_step = HALL_STEPS[hall_state]; // Determine electric step using lookup table
   direction = (new_electric_step > electric_step)? Direction::CW : Direction::CCW; // Determine direction for state change
   electric_step = new_electric_step;
 }
