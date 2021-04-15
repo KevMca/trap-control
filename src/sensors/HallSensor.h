@@ -1,3 +1,6 @@
+    // -- disable intterrupts
+    // -- save table on eeprom
+
 #ifndef HALL_SENSOR_H
 #define HALL_SENSOR_H
 
@@ -5,12 +8,12 @@
 #include "Arduino.h"
 
 // seq 1 > 5 > 4 > 6 > 2 > 3 > 1   000 001 010 011 100 101 110 111
-const int8_t ELECTRIC_STEPS[8] = { -1,  0,  4,  5,  2,  1,  3 , -1 };
+const int8_t HALL_STEPS[8] =     { -1,  0,  4,  5,  2,  1,  3 , -1 };
 
 /**
     Hall sensor class
 */
-class HallSensor{
+class HallSensor {
   public:
     /**
       Hall sensor class constructor
@@ -34,7 +37,7 @@ class HallSensor{
     /** Pin C callback function */
     void handleC();
     
-    // pins A and B
+    // pins A, B and C
     int pinA; // hardware pin A
     int pinB; // hardware pin B
     int pinC; // hardware pin C
