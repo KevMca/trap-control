@@ -17,10 +17,8 @@ void setup() {
   
   // initialise the hall sensor pins
   hall.init();
-  
   // initialise test variable
   electric_step_prev = hall.electric_step;
-  
   // enable hall sensor interrupts
   hall.enableInterrupts(doA, doB, doC);
 }
@@ -28,9 +26,9 @@ void setup() {
 void loop() {
   if(hall.electric_step != electric_step_prev) {
     // print new step and direction
-    /*Serial.print(hall.hall_state);
+    Serial.print(hall.hall_state);
     Serial.print(", ");
-    Serial.println(hall.direction);*/
+    Serial.println(hall.direction);
 
     // reset electric step
     electric_step_prev = hall.electric_step;

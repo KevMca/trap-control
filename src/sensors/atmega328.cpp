@@ -110,14 +110,14 @@ void _enablePinChangeInterrupt(void (*PCHandle)(), int PCPin) {
   }
   else if(PCPin >= 14 && PCPin <= 19){
     PCICR  |= bit(PCIE1);       // Interrupt 1 enabled (pcint 8 to 14)
-    PCMSK1 |= 1 << (PCPin - 14);  // Enable appropriate mask bit
+    PCMSK1 |= 1 << (PCPin - 14);// Enable appropriate mask bit
     PINCOld = PINC;             // Store current pin state for PCINT2
     attachPCINT(PCPin, PCHandle, CHANGE);
     Serial.println("Software 1");
   }
   else if(PCPin >= 8 && PCPin <= 13){
     PCICR  |= bit(PCIE0);       // Interrupt 0 enabled (pcint 0 to 7)
-    PCMSK0 |= 1 << (PCPin - 8);   // Enable appropriate mask bit
+    PCMSK0 |= 1 << (PCPin - 8); // Enable appropriate mask bit
     PINBOld = PINB;             // Store current pin state for PCINT2
     attachPCINT(PCPin, PCHandle, CHANGE);
     Serial.println("Software 0");
