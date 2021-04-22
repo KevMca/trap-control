@@ -51,4 +51,16 @@ void _compEnableInterrupt(void (*compHandle)());
  */
 void _compDisableInterrupt(void);
 
+/** 
+ *  Returns if the comparator is HIGH or LOW
+ * - hardware specific
+ */
+int8_t _compState(void);
+
+/** 
+ *  Uses a for loop to make sure that the input is stable
+ * - hardware specific
+ */
+void _debounce(uint8_t mode, uint8_t length);
+
 #endif

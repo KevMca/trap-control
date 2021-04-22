@@ -113,7 +113,7 @@ void _compMode(uint8_t mode) {
   } else if (mode == FALLING) {
     ACSR &= ~(1<<ACIS0);
     ACSR |= (1<<ACIS1);
-  } else { //default is RISING
+  } else if (mode == RISING) { //default is RISING
     ACSR |= ((1<<ACIS1) | (1<<ACIS0));
   }
 }
@@ -131,6 +131,27 @@ void _compEnableInterrupt(void (*compHandle)()) {
 // Comparator interrupt disable function
 void _compDisableInterrupt(void) {
   ACSR &= ~(1<<ACIE);
+}
+
+// Comparator state check
+int8_t _compState(void) {
+  return (ACSR & 0x20);
+}
+
+// Comparator state check
+void _debounce(uint8_t mode, uint8_t length) {
+  // Count down until signal is stable
+  for (int i = 0; i < length; i++) {
+    if (mode == FALLING){ // If FALLING
+      if (_compState() == HIGH) { i -= 1; }
+    }
+    else if (mode == RISING) {  // Else if RISING
+      if (_compState() == LOW) { i -= 1; }
+    }
+    else { // Else don't debounce
+      return;
+    }
+  }
 }
 
 /**
