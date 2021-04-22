@@ -30,6 +30,7 @@
 #ifndef TRAPCONTROL_H
 #define TRAPCONTROL_H
 
+#include "controller/Trapezoidal.h"
 #include "driver/BLDCDriver.h"
 #include "sensors/HallSensor.h"
 #include "sensors/Sensorless.h"
