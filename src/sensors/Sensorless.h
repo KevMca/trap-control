@@ -7,7 +7,7 @@
 /**
   Sensorless class
 */
-class Sensorless {
+class Sensorless: public Sensor {
   public:
     /**
       Sensorless class constructor
@@ -33,10 +33,6 @@ class Sensorless {
 
     // Lookup for comparator negative pin and mode for each step
     uint8_t SENSORLESS_STEPS[2][6];
-
-    // Sensorless state variables
-    volatile int8_t electric_step; // the current step of the sensor (from 1 to 6)
-    Direction direction = Direction::CW;           // whether last step was CW (+1) or CCW (-1).
 
   private:
 

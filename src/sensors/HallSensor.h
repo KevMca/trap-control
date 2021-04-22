@@ -13,7 +13,7 @@ const int8_t HALL_STEPS[8] =     { -1,  0,  4,  5,  2,  1,  3 , -1 };
 /**
     Hall sensor class
 */
-class HallSensor {
+class HallSensor: public Sensor {
   public:
     /**
       Hall sensor class constructor
@@ -47,8 +47,6 @@ class HallSensor {
     
     // HallSensor state variables
     volatile int8_t hall_state;    // the current 3bit state of the hall sensors
-    volatile int8_t electric_step; // the current step of the sensor (from 1 to 6)
-    Direction direction;           // whether last step was CW (+1) or CCW (-1).
 
   private:
 

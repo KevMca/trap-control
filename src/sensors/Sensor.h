@@ -1,6 +1,8 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
+#include "Arduino.h"
+
 /**
  *  Direction structure
  */
@@ -16,6 +18,19 @@ enum Direction{
 enum Pullup{
     INTERN, // Use internal pullups (turn on microcontroller pullups)
     EXTERN  // Use external pullups (the user has their own pullups outside the microcontroller)
+};
+
+/**
+  Sensor class
+*/
+class Sensor {
+  public:
+
+    // State variables
+    volatile int8_t electric_step;  // the current step of the sensor (from 1 to 6)
+
+  private:
+
 };
 
 #endif

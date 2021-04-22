@@ -61,6 +61,5 @@ void HallSensor::handleC() {
 void HallSensor::updateState() {
   hall_state = C_state + (B_state << 1) + (A_state << 2); // Update 3 bit state
   int8_t new_electric_step = HALL_STEPS[hall_state]; // Determine electric step using lookup table
-  direction = (new_electric_step > electric_step)? Direction::CW : Direction::CCW; // Determine direction for state change
   electric_step = new_electric_step;
 }
