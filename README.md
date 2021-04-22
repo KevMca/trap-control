@@ -7,7 +7,7 @@ files that can be rewritten for different platforms.
 The original intention behind this project was to function as part of my submission to the ET4224 module at the University of Limerick and
 also to create a simple controller for a 2nd Generation Toyota Prius inverter.
 
-This library was heavily inspired by the Simple FOC Arduino library which can be found at <a href="https://github.com/simplefoc/Arduino-FOC">
+This library was heavily inspired by the Simple FOC Arduino library which can be found at https://github.com/simplefoc/Arduino-FOC
 
 ##### Sensors
 - Latching hall effect sensors
@@ -87,4 +87,4 @@ void loop() {
 ```
 
 ## Documentation
-For more information about the Prius inverter go to <a href="https://www.mcand.ru/prius">
+For more information about the Prius inverter go to https://www.mcand.ru/prius
