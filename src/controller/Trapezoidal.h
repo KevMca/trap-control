@@ -73,8 +73,9 @@ class Trapezoidal {
     /**
      * Spin up the motor using timers instead of any sensing
      * 
-     * @param incRPM duty cycle setting until more complicated control is implemented
-     * @param endRPM duty cycle setting until more complicated control is implemented
+     * @param incRPM the RPM at the beginning of the ramp
+     * @param endRPM the RPM at the end of the ramp
+     * @param rampTime the amount of time that it takes for the ramp to complete
      */
     void openLoopRamp(float startRPM, float endRPM, float rampTime);
 
